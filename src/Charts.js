@@ -6,7 +6,7 @@ import {
 } from 'recharts';
 
 const lossData = [
-  { name: 'Lost', "lost value": 2100 },
+  { name: 'Lost', "lost value": 210 },
   { name: 'Aged', "lost value": 150 },
   { name: 'Withdrawn', "lost value": 150 },
 ];
@@ -77,7 +77,7 @@ const Charts = () => {
       </Grid>
       <Grid item xs={12} md={4}>
       <div className="chart">
-          <h4>Lost Opportunities £000</h4>
+          <h4>Lost Opportunities</h4>
           <BarChart width={300} height={230} data={lossData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />

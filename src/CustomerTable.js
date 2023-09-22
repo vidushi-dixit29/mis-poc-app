@@ -21,13 +21,18 @@ const StyledTableCell = styled(TableCell)`
 
 const rows = [
   createData('Amazon TS Ops', 700, 600, 700, 100, 0, 500),
-  createData('Amazon Prime', 700, 600, 700, 100, 0, 500),
-  createData('Adobe Creative Cloud', 700, 600, 700, 100, 0, 500),
-  createData('Microsoft WWL', 700, 600, 700, 100, 0, 500),
+  createData('Amazon Prime', 200, 100, 200, 100, 1, 200),
+  createData('Adobe Creative Cloud', 400, 400, 400, 0, 0, 100),
+  createData('Microsoft WWL', 100, 400, 0, 400, 1, 0),
+  createData('Microsoft CSS', 100, 100, 100, 0, 0, 100),
+  createData('Spark', 200, 200, 200, 0, 0, 150),
+  createData('Tableau', 100, 100, 100, 0, 0, 100),
+  createData('Customer 8', 100, 100, 100, 0, 0, 300),
+  createData('Customer 9', 100, 100, 100, 0, 0, 100),
+  createData('Others', 200, 1300, 1100, 200, 0, 1450),
 ];
 
 const CutomerTable = () => {
-  // Calculate totals for each column
   const totalPy = rows.reduce((sum, row) => sum + row.py, 0);
   const totalBudget = rows.reduce((sum, row) => sum + row.budget, 0);
   const totalActual = rows.reduce((sum, row) => sum + row.actual, 0);

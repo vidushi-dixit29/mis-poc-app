@@ -35,7 +35,7 @@ const NestedTable = ({ data, outerColumns, innerColumns }) => {
         <TableHead>
           <StyledTableRow>
             {outerColumns.map((column, index) => (
-              <StyledTableCell key={index}>{splitContent(column)}</StyledTableCell>
+              <StyledTableCell sx={{ width: '100px' }} key={index}>{splitContent(column)}</StyledTableCell>
             ))}
             <StyledTableCell></StyledTableCell>
           </StyledTableRow>

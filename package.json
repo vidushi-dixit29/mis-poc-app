@@ -2,7 +2,7 @@
   "name": "mis-poc-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vidushi-dixit29.github.io/mis-poc",
+  "homepage": "https://vidushi-dixit29.github.io/mis-poc-app",
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/styled": "latest",

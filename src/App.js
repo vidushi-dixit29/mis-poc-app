@@ -27,6 +27,7 @@ const App = () => {
       <Header />
 
       <div className="body">
+     
         <Grid container spacing={2}>
           <Grid item xs={9}>
             <Charts/>
