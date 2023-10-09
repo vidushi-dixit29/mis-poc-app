@@ -27,9 +27,8 @@ const rows = [
   createData('Microsoft CSS', 100, 100, 100, 0, 0, 100),
   createData('Spark', 200, 200, 200, 0, 0, 150),
   createData('Tableau', 100, 100, 100, 0, 0, 100),
-  createData('Customer 8', 100, 100, 100, 0, 0, 300),
-  createData('Customer 9', 100, 100, 100, 0, 0, 100),
-  createData('Others', 200, 1300, 1100, 200, 0, 1450),
+  createData('Coursera', 100, 100, 100, 0, 0, 300),
+  createData('Deloitte MCS Limited', 100, 100, 100, 0, 0, 100)
 ];
 
 const CutomerTable = () => {

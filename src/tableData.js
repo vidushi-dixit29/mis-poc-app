@@ -21,7 +21,7 @@ const data = [
   {
    outerData:[
     { value: "EMEA" },
-    { value: "100", color: "red" },
+    { value: "100", color: "#F86748" },
     { value: "2\n[220]", color: "blue" },
     { value: "150\n[Stage 1]", color: "purple" },
     { value: "150\n[Jan 24]" },
@@ -32,7 +32,7 @@ const data = [
     { value: "210" },
   ],
     innerData: [[
-      { value: "Maxon Computer", component: withTooltip(<MessageIcon color="info" />, '2 Opportunities [2500] were lost with the client in the last quarter due to Currency Exchange Fluctuations:. Contact Owner KL for more information', "Maxon Computer") },
+      { value: "Maxon Computer" },
       { value: "Consumer/Replace Incumbent" },
       { value: "2" },
       { value: "5" },
@@ -44,7 +44,7 @@ const data = [
       { value: "KL" },
     ],
       [
-      { value: "Coursera", component: withTooltip(<WarningIcon color="info" />, 'Category seems to show early signs of turmoil due to the revised policy issued by central government around taxation.', "Coursera") },
+      { value: "Coursera", component: withTooltip(<MessageIcon color="info" />, '2 Opportunities [£210,000] were lost with the client in the last quarter due to Currency Exchange Fluctuations:. Contact Owner KL for more information', "Coursera") },
       { value: "Tech/New Content" },
       { value: "2" },
       { value: "5" },
@@ -56,7 +56,7 @@ const data = [
       { value: "KL" },
     ],
     [
-      { value: "Oman Air" },
+      { value: "Oman Air",  component: withTooltip(<WarningIcon color="info" />, 'Category seems to show early signs of turmoil due to the revised policy issued by central government around taxation.', "Oman Air") },
       { value: "Tech/New Content" },
       { value: "5" },
       { value: "90" },
@@ -107,7 +107,7 @@ const data = [
 {
    outerData:[
     { value: "USA" },
-    { value: "150", color: "orange" },
+    { value: "150", color: "green" },
     { value: "4\n[1,250]", color: "blue" },
     { value: "1\n[Stage 4]", color: "purple" },
     { value: "800\n[Jan 24]" },
@@ -118,7 +118,7 @@ const data = [
     { value: "150" },
   ],
     innerData: [[
-      { value: "DeFacto", component: withTooltip(<MessageIcon color="info" />, '2 Opportunities [10] were lost with the client in the last quarter due to Legal Costs. Contact Owner JB for more information', "DeFacto") },
+      { value: "DeFacto", component: withTooltip(<MessageIcon color="info" />, '2 Opportunities [£150,000] were lost with the client in the last quarter due to aging. Contact Owner JB for more information', "DeFacto") },
       { value: "Consumer/Replace Incumbent" },
       { value: "4" },
       { value: "25" },
@@ -181,7 +181,7 @@ const data = [
 {
   outerData:[
    { value: "APAC" },
-   { value: "10", color: "green" },
+   { value: "10", color: "red" },
    { value: "2\n[1,700]", color: "blue" },
    { value: "2\n[Stage 4]", color: "purple" },
    { value: "500\n[Jan 24]" },

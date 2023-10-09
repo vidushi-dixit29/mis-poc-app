@@ -1,33 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Paper, TextField, IconButton, Divider, Typography, Box, ListItemIcon } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import './ChatWindow.css'; 
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'; 
 
-
 const ChatWindow = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false); 
-  
+  const chatContainerRef = useRef(null); // Create a ref for the chat container
+
   const handleSendMessage = () => {
     if (message.trim() !== '') {
-      // Create a new array with the user's message
       const updatedMessages = [...messages, { text: message, sender: 'You' }];
-  
-      // Add the user's message to the messages array
       setMessages(updatedMessages);
       setMessage('');
       setIsTyping(true);
-  
-      // Simulate the assistant's response after a delay
-      setTimeout(() => {
-        setIsTyping(false);
-        // Append the assistant's response to the existing messages
-        setMessages([...updatedMessages, { text: "Thanks for your enquiry.", sender: 'Assistant' }]);
-      }, 1500);
+
+      fetch(`http://18.130.225.150:5000/api/data?question=${encodeURIComponent(message)}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setIsTyping(false);
+          if (data.error) {
+            console.log(data.error);
+            setMessages([...updatedMessages, { text: 'Sorry, an error occurred.', sender: 'Assistant' }]);
+          } else {
+            console.log(data);
+            const response =  data;
+            setMessages([...updatedMessages, { text: data, sender: 'Assistant' }]);
+          }
+        })
+        .catch((error) => {
+          setIsTyping(false);
+          console.error('Error:', error);
+          setMessages([...updatedMessages, { text: 'Sorry, an error occurred.', sender: 'Assistant' }]);
+        });
     }
   };
+
+  // Scroll to the bottom of the chat when messages change
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   return (
     <Container maxWidth="md" style={{ display: 'flex', flexDirection: 'column', height: '80vh' }}>
@@ -39,30 +65,31 @@ const ChatWindow = () => {
           <ChatBubbleOutlineIcon fontSize="large" color="primary" />
         </ListItemIcon>
       </Box>
-      <Paper elevation={3} sx={{ border: '1px solid #D3D3D3', flex: 1, overflowY: 'scroll', boxShadow: 0, borderRadius: 0 }}>
+      <Paper elevation={3} sx={{ border: '1px solid #D3D3D3', flex: 1, overflowY: 'scroll', boxShadow: 0, borderRadius: 0 }} ref={chatContainerRef}>
         <div style={{ padding: '16px' }}>
           <div style={{ marginBottom: '8px', textAlign: 'left' }}>
             <strong>Assistant:</strong> Hello! How can I assist you today?
           </div>
-          
-          <div style={{ marginBottom: '8px', textAlign: 'right' }}>
-            <strong>You:&nbsp;</strong>Can you generate a report on all the opportunities in the pipeline in 'consumer ' space across markets?
-          </div>
+
           {messages.map((msg, index) => (
             <div key={index} style={{ marginBottom: '8px', textAlign: msg.sender === 'You' ? 'right' : 'left' }}>
-              <strong>{msg.sender}:</strong> {msg.text}
+              <strong>{msg.sender}:</strong> {typeof msg.text === 'string' ? (
+                msg.text
+              ) : (
+                <pre>{JSON.stringify(msg.text, null, 2)}</pre>
+              )}
             </div>
           ))}
         </div>
         <div>
-        {isTyping && (
-            <div className="typing-indicator"> {/* CSS handles animation */}
+          {isTyping && (
+            <div className="typing-indicator" style={{padding: "16px"}}>
               <div className="dot"></div>
               <div className="dot"></div>
               <div className="dot"></div>
             </div>
           )}
-          </div>
+        </div>
       </Paper>
       <Divider />
       <div style={{ display: 'flex', alignItems: 'center', paddingTop: '8px' }}>

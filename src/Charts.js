@@ -19,7 +19,7 @@ const sectorData = [
 const grossOpportunity = [
   { name: 'US', value: 30.4 },
   { name: 'EMEA', value: 41.9 },
-  { name: 'New Division', value: 27.7 },
+  { name: 'APAC', value: 27.7 },
   
 ];
 const grossOpportunityPallate = ['#299617', '#4169E1', '#36454F'];
