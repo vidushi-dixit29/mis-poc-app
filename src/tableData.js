@@ -16,7 +16,7 @@ const withTooltip = (Component, tooltipText, text) => (
     </div>
   );
 export const outerColumns = ["Markets", "Most Aged \n[Stage]", "Expected Closing in Next 2 months [WDV]", "Most WDV\n[Stage]", "Stage 1", "Stage 2", "Stage 3", "Stage 4", "Stage 5", "Lost Value"];
-export const innerColumns = ["Opportunity", "Sector/Need", "Stage", "Days In Stage", "Expected Closing","WDV", "FY23O", "FY23B", "WOL/ Non-WOL", "Onwer"];
+export const innerColumns = ["Opportunity", "Sector/Need", "Stage", "Days In Stage", "Expected Closing","WDV", "FY23O", "FY23B", "WOL/ Non-WOL", "Owner"];
 const data = [
   {
    outerData:[
