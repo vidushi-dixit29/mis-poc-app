@@ -7,7 +7,6 @@ import CustomerTable from "./CustomerTable";
 import Charts from "./Charts";
 import ChatWindow from "./ChatWindow";
 import Grid from '@mui/material/Grid';
-
 import Header from "./Header";
 const App = () => {
   const tabs = [
