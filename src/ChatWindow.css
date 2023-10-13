@@ -8,7 +8,11 @@
     width: 8px;
     height: 8px;
     background-color: #007bff; /* Change to your desired color */
+<<<<<<< HEAD
     border-radius: 599%;
+=======
+    border-radius: 10%;
+>>>>>>> 20ed300 (test3)
     margin-right: 4px; /* Adjust the spacing between dots */
     animation: typing-dot 1.5s infinite; /* Adjust animation duration as needed */
   }
